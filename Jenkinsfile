@@ -27,9 +27,8 @@ pipeline{
        }
     }
   }
-} 
- 
-post {
+
+ post {
         always {
             echo 'Jenkins - Email enviado apos o build'
           
