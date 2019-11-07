@@ -21,21 +21,19 @@ pipeline{
         script{
           def logz = currentBuild.rawBuild.getLog(1000);
           def result = logz.Find{it.contains('FAIL')
-          if(Result){
+          if(result){
             error('FAILING TO DUE' + result)    
           }
        }
-    }
-  }
-
- post {
-        always {
-            echo 'Jenkins - Email enviado apos o build'
-          
-            emailext body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
+     }
+   }
+}
+     post {
+         always {
+            echo 'Jenkins - Email enviado apos o build'          
+              emailext body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
                 recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
                 subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
-          
         }
     }
-  }
+}
