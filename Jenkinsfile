@@ -25,7 +25,7 @@ pipeline{
             error('FAILING TO DUE' + result)    
           }
        }
-     }
+     
    }
   }
 }
