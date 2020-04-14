@@ -1,2 +1,2 @@
 # Docker-Com-Jenkins
-Teste
+Projeto utilizando docker com jenkins para executar uma classe java Hello World.
